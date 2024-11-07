@@ -1,32 +1,10 @@
-# Use an official Node runtime as a parent image
-FROM node:16-alpine AS build
-
-# Set the working directory
-WORKDIR /app
-
-# Copy the package.json and package-lock.json to the working directory
-COPY ./package*.json ./
-
-# Install the dependencies
-RUN npm install
-
-# Copy the remaining application files to the working directory
-COPY . .
-
-# Build the application
-RUN npm run build
-
-# Use a lightweight server to serve the static files
+# Use the official Nginx image from the Docker Hub
 FROM nginx:alpine
 
-# Copy the build files to the NGINX server
-COPY --from=build /app/build /usr/share/nginx/html
+# Copy the HTML file into the container's web server directory
+COPY index.html /usr/share/nginx/html/index.html
 
-# Copy the custom NGINX configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Expose port 80 to access the web server
+EXPOSE 5003
 
-# Expose port 80
-EXPOSE 5001
-
-# Start NGINX
-CMD ["nginx", "-g", "daemon off;"]
+# The Nginx container runs by default on port 80, no need to define a CMD as the base image already does this
