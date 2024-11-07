@@ -5,6 +5,6 @@ FROM nginx:alpine
 COPY index.html /usr/share/nginx/html/index.html
 
 # Expose port 80 to access the web server
-EXPOSE 5003
+EXPOSE 80
 
 # The Nginx container runs by default on port 80, no need to define a CMD as the base image already does this
