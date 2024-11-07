@@ -1,16 +1,10 @@
+version: '3.8'
 
 services:
-  react-app:
-    container_name: react-app
-    restart: unless-stopped
-    build:
-      context: .
-      dockerfile: Dockerfile
+  web:
+    build: .
     ports:
       - "5003:5003"
     volumes:
-      - .:/app
-      - /app/node_modules
-      - ./src:/app/src 
-    stdin_open: true
-    tty: true
+      - .:/usr/share/nginx/html
+    container_name: nginx_html_page
