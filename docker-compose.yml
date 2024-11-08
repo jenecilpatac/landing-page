@@ -7,7 +7,6 @@ services:
       - "5001:80"
     volumes:
       - .:/usr/share/nginx/html
-      - ./docker-compose/nginx:/etc/nginx/conf.d/
     container_name: sample1
     networks:
       - webnet
