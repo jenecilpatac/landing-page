@@ -4,10 +4,10 @@ services:
   web:
     build: .
     ports:
-      - "5001:80"
+      - "5001:5001"
     volumes:
       - .:/usr/share/nginx/html
-    container_name: nginx_html_page2
+    container_name: sample1
     networks:
       - webnet
 
