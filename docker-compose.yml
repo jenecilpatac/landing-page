@@ -9,9 +9,9 @@ services:
     volumes:
       - ./default.conf:/etc/nginx/conf.d/default.conf # Mount the custom NGINX config
     expose:
-      - "5007"
-      - "5008"
-      - "5009"    # Expose port 80 for the NGINX load balancer to access
+      - "5007:5007"
+      - "5008:5008"
+      - "5009:5009"    # Expose port 80 for the NGINX load balancer to access
     deploy:
       replicas: 3 
   nginx:
