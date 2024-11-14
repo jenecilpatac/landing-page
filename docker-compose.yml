@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  landing-page:
+  landing-page1:
     build:
       context: .  # Build the HTML page from the Dockerfile in the current directory
     networks:
@@ -11,7 +11,7 @@ services:
     ports:
       - "5007:5001"
   
-  landing-page1:
+  landing-page2:
     build:
       context: .  # Build the HTML page from the Dockerfile in the current directory
     networks:
@@ -21,7 +21,7 @@ services:
     ports:
       - "5008:5001"
 
-  landing-page2:
+  landing-page3:
     build:
       context: .  # Build the HTML page from the Dockerfile in the current directory
     networks:
